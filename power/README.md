@@ -10,8 +10,8 @@ power(2, 3)=8
 ## 原理
 
 ```
-PS C:\Users\ldhsi\Desktop\系統程式\sp108b\homework\power> gcc -c power.c
-PS C:\Users\ldhsi\Desktop\系統程式\sp108b\homework\power> objdump -d power.o
+PS C:\Users\teemo\Desktop\系統程式\sp108b\homework\power> gcc -c power.c
+PS C:\Users\teemo\Desktop\系統程式\sp108b\homework\power> objdump -d power.o
 
 power.o:     file format pe-i386
 
