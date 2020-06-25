@@ -27,7 +27,7 @@ process B 做的事是 「sum= sum+2」
 
 但簡單的「sum= sum+3」這個指令翻譯成組合語言時卻有三個步驟。
 
-'''
+```
 (程式A做的指令)
 move ax sum (將記憶體中變數sum的值，讀進register ax)
 add ax 3 (將ax的值加3，存放在register ax裡) 
@@ -37,7 +37,7 @@ move sum ax (將ax的值寫回記憶體中的變數sum)
 move bx sum (將記憶體中變數sum的值，讀進register bx)
 add bx 2 (將bx的值加2，存放在register bx裡) 
 move sum bx (將bx的值寫回記憶體中的變數sum)
-'''
+```
 
 也就是說，如果這些指令中途被其它程式打斷的話，
 
@@ -66,11 +66,11 @@ move sum bx (將bx的值寫回記憶體中的變數sum)
 
 ## (軟體解)從一個單純的解法看起
 
-設 ''' int turn; ''' 是共享變數。(P0, P1共用的變數)
+設 ``` int turn; ``` 是共享變數。(P0, P1共用的變數)
 
 P0的程式如下:
 
-'''
+```
 /* Process 0*/
 do{
     while(turn!=0);
@@ -78,10 +78,10 @@ do{
     turn = 1;
         remainder section
 }while(1)
-'''
+```
 P1的程式如下:
 
-'''
+```
 /* Process 1*/
 do{
     while(turn!=1);
@@ -89,11 +89,11 @@ do{
     turn = 0;
         remainder section
 }while(1)
-'''
+```
 這個設計代表說當turn=i時，
 
 P1便可以進入critical section。
 
-(以P0為例， '''while(turn!=0);'''這一行代表說當'''turn'''不是0的時候，會被擋在CS外進不去)
+(以P0為例， ```while(turn!=0);```這一行代表說當```turn```不是0的時候，會被擋在CS外進不去)
 
 這個解法有沒有滿足CS問題的三個條件呢?
