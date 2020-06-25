@@ -35,4 +35,5 @@ Time sharing system: 希望每支程式都要被公平的執行到，現代作�
 由硬體每隔一段固定的時間，發送一個interrupt，再透過scheduler告訴CPU該換程式執行了，
 以達到每支程式都要被公平的執行的目的。
 
-scheduler:作業系統內的排程器，用來安排什麼時間CPU執行哪支程式。
+
+**scheduler**:作業系統內的排程器，用來安排什麼時間CPU執行哪支程式。
