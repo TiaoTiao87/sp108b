@@ -35,10 +35,23 @@ System call是OS介面(kernal mode)的函式庫。
 
 ![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0202.png)
 
-Layered OS level分成一層一層的，level N只能從levelN-1去呼叫函數，較容易維護與除錯(debug)，但困難點是較難去定義layer。
+Layered OS level分成一層一層的，
+
+level N只能從levelN-1去呼叫函數，
+
+較容易維護與除錯(debug)，
+
+但困難點是較難去定義layer。
+
 
 #### Microkernal OS
 
 ![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0203.png)
 
-Microkernal則是節省核心功能，將一些非必要的OS部分移至user space，以message passing 做為process間的溝通，process間的溝通效率較差但kernal結構比較簡單。
+Microkernal則是節省核心功能，
+
+將一些非必要的OS部分移至user space，
+
+以message passing 做為process間的溝通，
+
+process間的溝通效率較差但kernal結構比較簡單。
