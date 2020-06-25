@@ -1,4 +1,4 @@
-Ch3程式生命週期-new, ready, running, waiting, terminated
+Ch3 程式生命週期-new, ready, running, waiting, terminated
 ===
 
 
