@@ -2,7 +2,10 @@
 ===
 ## 作業系統線上學習
 
-### 參考課程:[小黑馬作業系統教室](https://ithelp.ithome.com.tw/articles/10229251)
+### 參考課程:
+
+[小黑馬作業系統教室](https://ithelp.ithome.com.tw/articles/10229251)
+
 
 ### 課程內容:
 
