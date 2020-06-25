@@ -21,4 +21,4 @@ Ch3程式生命週期-new, ready, running, waiting, terminated
 
 2. ready->running:在OS上實際上有支叫做scheduler的程式進行程式的排程，CPU一次只會執行一支程式，scheduler會決定下一個給CPU執行的程式是哪個。
 
-(ready, running state間互換稱為「context switch」)
+    (ready, running state間互換稱為「context switch」)
