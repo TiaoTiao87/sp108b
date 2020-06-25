@@ -19,6 +19,7 @@ Ch3程式生命週期-new, ready, running, waiting, terminated
 
 1. new-> ready : 有新的程式加入會由「new state」切換到「ready state」。
 
-2. ready->running:在OS上實際上有支叫做scheduler的程式進行程式的排程，CPU一次只會執行一支程式，scheduler會決定下一個給CPU執行的程式是哪個。
+2-1. ready->running:在OS上實際上有支叫做scheduler的程式進行程式的排程，CPU一次只會執行一支程式，scheduler會決定下一個給CPU執行的程式是哪個。
 
     (ready, running state間互換稱為「context switch」)
+2-2. running->ready:透過interrupt打擾CPU，interrupt除了程式有特別需求去打斷CPU以外，更多的interrupt可能是來自「Timer」的打斷。
