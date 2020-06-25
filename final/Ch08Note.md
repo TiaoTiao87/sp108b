@@ -70,3 +70,55 @@ int main()
     return 0;
 }
 ```
+例如結果印出:
+
+```變數 b 的值：2```
+
+```變數 b 的記憶體位址：0060FEFC```
+
+但使用者看到的地址```0060FEFC```僅僅是虛擬地址，
+
+b放在真實記憶體的其他位置，
+
+我們無從得知變數b實際放在哪裡。
+
+使用者視角所看到變數b的記憶體位置我們稱為「logical address」，
+
+該變數存放的真實記憶體位置為「physical address」。
+
+## Paging- 連結logical memory與physical memory的機制
+
+對於作業系統來說，怎麼知道在使用者程式在「logical memory」實際上放在「physical memory」哪裡呢?
+
+**OS將logical memory的空間切成相同大小的空間，稱為「page」**
+
+**OS將physical memory的空間切成相同大小的空間，稱為「frame」**
+
+OS會有一張「page table」，用來將logical memory和physical memory做對應的關係，
+
+![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0801.png)
+
+假設PageTable說Page0實際對應到frame編號1的位置，
+
+那麼使用者在logical memory看到的page0實際上便放在physical memory的frame1上了。
+
+## logical address的表示方法
+
+一張page的大小可能很大，
+
+裡面不會只有存一個地址，
+
+所以光是知道Page對應到哪個frame還不足以得到完整的地址。
+
+事實上，logical address由兩個部分組成:
+
+**page number(p)**:表示第幾個page
+
+**page offset(d)**:有點像是變數放在這個page的第幾個字的感覺，若d有n個bit表示page size為2的n次方個byte這麼大。
+
+剛剛看到的那張page table，
+
+實際上查的便是page number(p)對應到哪一個frame number(f)，
+
+那麼真實記憶體位置(physical address)即是f串接d得到的值。
+
