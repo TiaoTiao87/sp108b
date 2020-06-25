@@ -64,36 +64,33 @@ move sum bx (將bx的值寫回記憶體中的變數sum)
 
 ## Critical section problem的各種解法
 
-## (軟體解)從一個單純的解法看起
+## (軟體解)Peterson's solution
 
-設 ``` int turn; ``` 是共享變數。(P0, P1共用的變數)
+設```int turn;```，```boolean flag[2]```是共享變數。
+
+(初始值```turn=0; flag[0]=flag[1]=false```)
 
 P0的程式如下:
-
 ```
 /* Process 0*/
 do{
-    while(turn!=0);
-        critical section
+    flag[0]=true;
     turn = 1;
+    while(flag[1] && turn==1);
+        critical section
+    flag[0]=false;
         remainder section
 }while(1)
 ```
 P1的程式如下:
-
 ```
 /* Process 1*/
 do{
-    while(turn!=1);
-        critical section
+    flag[1]=true;
     turn = 0;
+    while(flag[0] && turn==0);
+        critical section
+    flag[1]=false;
         remainder section
 }while(1)
 ```
-這個設計代表說當turn=i時，
-
-P1便可以進入critical section。
-
-(以P0為例， ```while(turn!=0);```這一行代表說當```turn```不是0的時候，會被擋在CS外進不去)
-
-這個解法有沒有滿足CS問題的三個條件呢?
