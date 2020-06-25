@@ -23,3 +23,13 @@
 Batch system-> Multiprogramming system-> Multi-tasking system (又稱為Time sharing system)
 
 **區別:**
+Batch system: CPU一次只能執行一個工作，使用者跟電腦沒有互動。
+Multiprogramming system: 希望CPU不要閒置，當有程式需要執行時不要發呆。
+Time sharing system: 希望每支程式都要被公平的執行到，現代作業系統多屬此類型。
+
+## 觀念四: interrupt跟Time sharing system的關係?
+
+由硬體每隔一段固定的時間，發送一個interrupt，再透過scheduler告訴CPU該換程式執行了，
+以達到每支程式都要被公平的執行的目的。
+
+scheduler:作業系統內的排程器，用來安排什麼時間CPU執行哪支程式。
