@@ -122,3 +122,90 @@ OS會有一張「page table」，用來將logical memory和physical memory做對
 
 那麼真實記憶體位置(physical address)即是f串接d得到的值。
 
+## 二次存取記憶體的時間浪費
+
+然而，Page Table它也是放在記憶體裡面的，
+
+如果我們想透過logical address去到physical address的話，
+
+就需要兩次的記憶體存取，
+
+一次用來查詢Page Table，
+
+另一次用來進入physical memory的地址。
+
+## 快速查詢表-TLB
+
+因為TLB屬於cache(快取記憶體)的一種，
+
+查詢TLB的時間比查詢記憶體上的page table還要來的快。
+
+## TLB在context switch後必順刷新
+
+對不同的process來說，它們有各自的page table，但TLB是共用的，
+
+TLB的存在是為了使查找process裡的logical address到physical address的轉換可以快一點。
+
+因為TLB是共用的，如果process交換了，應該先清空TLB，把下一個要執行的process需要的資料(他的page table)跟著拿進來，
+
+否則便會讀到別人page table的資訊，而查詢到錯誤的地址。
+
+## Effective Memory Access Time(EMAT)
+
+EMAT計算平均一次查page而存取記憶體的時間。
+
+1. 假設每次TLB search的時間為20ns (ns是奈秒，時間單位，為10^(-9)秒)
+
+2. 假設每次memory access的時間為100ns
+
+3. 假設TLB hit ratio為70%
+
+查詢時間會有下列兩種情況:
+
+1. 如果透過TLB查到資料了，那麼我們就直接去physical memory就好，
+
+    此時需要的時間為 20+100=120ns。
+    
+    EMAT= 0.7x120ns + (1-0.7)x220ns= 84+66 = 150ns
+
+2. 如果透過TLB查不到資料，我們要額外花一次時間查page table再去physical memory，
+
+    此時需要的時間為 20+100+100=220ns。
+    
+如果沒有TLB時，則查詢速度皆為100+100=200ns。
+
+## 碎片化(fragmentaion)
+
+![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0802.png)
+
+## 以電腦語言來定義fragmentaion
+
+**internal fragmentaion**: 作業系統配置給 process 的 memory 空間大於 process 真正所需的空間，這些多出來的空間該 process 用不到，而且也沒辦法供其他 process 使用，形成浪費。
+
+**external fragmentaion**: 系統中，所有可用空間總和大於某個 process 所需要，但因為這些空間不連續而無法配給該 process 使用，造成 memory 空間閒置的浪費。
+
+## 真實系統在paging前做segmentation
+
+系列文前兩篇我們一直在講paging，透過page table將使用者視角的logical address映射到 physical address，
+
+然而在真實的電腦作業系統中，實際上還會再多一層轉換，叫做segmentation，
+
+![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0802.png)
+
+首先，使用者寫程式所看到的變數地址稱為「logical address」，
+
+先透過segmentation將logical address映射至「linear address」，
+
+再透過paging 將「linear address」映射至「physical address」。
+
+## 為什麼不能只有paging?
+
+對於記憶體管理來說，paging只能解決「外部碎片化」的問題，
+
+因為paging將使用者的地址切成一塊塊固定大小，
+
+segmentation則是解決內部碎片的問題，較符合使用者的視角，
+
+比如說將使用者程式相近的地址打包成一個page啦。
+
+以解決內部碎片的問題。
