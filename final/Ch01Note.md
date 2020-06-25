@@ -24,7 +24,9 @@ Batch system-> Multiprogramming system-> Multi-tasking system (又稱為Time sha
 
 **區別:**
 Batch system: CPU一次只能執行一個工作，使用者跟電腦沒有互動。
+
 Multiprogramming system: 希望CPU不要閒置，當有程式需要執行時不要發呆。
+
 Time sharing system: 希望每支程式都要被公平的執行到，現代作業系統多屬此類型。
 
 ## 觀念四: interrupt跟Time sharing system的關係?
