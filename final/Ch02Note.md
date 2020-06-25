@@ -8,7 +8,7 @@ Interface是「介面」，
 大致上可以想成是函數的長相，
 
 ```
-int power (int x, int y); //c
+int power (int x, int y);
 ```
 
 API就很像是函式庫的感覺，比如說我想讓程式幫我計算「2的100次方」，我可能就會去呼叫數學運算的API來幫我做這件事。
