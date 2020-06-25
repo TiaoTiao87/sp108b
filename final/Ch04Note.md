@@ -63,8 +63,26 @@ user thread則是歸使用者程式所管。
 
 又可以分為三種模型:
 
-1. **Many-to-One model**
+**Many-to-One model**
 
 ![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0401.png)
 
+1. 多個user thread接到一個kernel thread
 
+2. 因為只有一個kernel thread，同時只能有一個user thread進入kernel執行，程式沒有平行化
+
+3. 缺點: 可能會因為一支thread「卡住」而導致整個process跟著「卡住」
+
+**One-to-One model**
+
+![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0402.png)
+
+1. 一個user thread接到一個kernel thread
+
+2. 缺點: 每創建一個user thread，就必須創建一個kernel thread，對OS來說管理的負擔較大。
+
+**Many-to-Many model**
+
+![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0403.png)
+
+1. 多個user thread接到多個kernel thread，看哪個kernel thread不忙碌就去使用它
