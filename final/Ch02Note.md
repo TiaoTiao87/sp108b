@@ -21,4 +21,4 @@ System call是OS介面(kernal mode)的函式庫。
 
 在OS的世界裡，可以允許同時有很多支程式(process)在執行，程式之間也可能會需要互相傳遞訊息，而message passing 和 shared memory是最常見的兩種方式。
 
-![image]https://github.com/TiaoTiao87/sp108b/blob/master/final/Ch0201.png
+![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/Ch0201.png)
