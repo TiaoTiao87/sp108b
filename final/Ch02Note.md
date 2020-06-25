@@ -27,6 +27,7 @@ System call是OS介面(kernal mode)的函式庫。
 ![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0201.png)
 
 **message passing**: 程式傳遞訊息要先傳送到kernal，再傳給另一支程式。
+
 **shared memory**: 兩個程式之間共享一個記憶體，A要傳訊息給B，就把訊息寫在這個記憶體中，B就會看到。
 
 ## 常見OS架構
