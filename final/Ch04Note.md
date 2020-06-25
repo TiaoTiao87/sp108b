@@ -9,7 +9,7 @@ Ch4 thread - 比process更輕量的程式
 
 在同一支process底下的所有thread共享相同的資源。
 
-#### **thread,process,program的差異**
+## **thread,process,program的差異**
 
 **thread** 是OS分配 CPU 時間的對象
 
@@ -51,7 +51,7 @@ user thread則是歸使用者程式所管。
 
     由OS直接管理。
     
-#### **Multi-threading models 介紹**
+## **Multi-threading models 介紹**
 
 由於OS不直接管理user thread，
 
