@@ -190,7 +190,7 @@ EMAT計算平均一次查page而存取記憶體的時間。
 
 然而在真實的電腦作業系統中，實際上還會再多一層轉換，叫做segmentation，
 
-![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0802.png)
+![image](https://github.com/TiaoTiao87/sp108b/blob/master/final/IMG/Ch0803.png)
 
 首先，使用者寫程式所看到的變數地址稱為「logical address」，
 
